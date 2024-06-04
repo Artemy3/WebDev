@@ -1,0 +1,15 @@
+.header {
+   text-align: center;
+   margin: 30px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.btn_right {
+   display: flex;
+   gap: 0 10px;
+}
+
+.link {
+   text-decoration: none;
+}
