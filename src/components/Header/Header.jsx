@@ -1,9 +1,12 @@
 import React from "react";
 import style from './Header.module.css'
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
+   const { items, totalPrice } = useSelector((state) => state.cart);
+
    return <div className={style.header}>
       <div>
          <button>Вход</button>
@@ -15,7 +18,8 @@ const Header = () => {
             <Link className={style.link} to="/cart">Корзина</Link>
          </div>
          <div>
-            <p>Товаров на сумму:</p>
+            <p>Колличество товаров в корзине:<span> {items.length}</span></p>
+            <p>Сумма:<span> {totalPrice}</span> руб.</p>
          </div>
       </div>
    </div>

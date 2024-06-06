@@ -6,3 +6,7 @@
 .items {
    display: flex;
 }
+
+button {
+   cursor: pointer;
+}
