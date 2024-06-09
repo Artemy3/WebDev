@@ -11,10 +11,9 @@ function Products() {
    const dispatch = useDispatch();
 
 
-   const fetchItems = () => {
-      axios.get('https://662a6f4167df268010a3ebd4.mockapi.io/items').then(res => {
-         dispatch(setProducts(res.data))
-      });
+   const fetchItems = async () => {
+      const res = await axios.get('https://662a6f4167df268010a3ebd4.mockapi.io/items');
+      dispatch(setProducts(res.data))
    };
 
    useEffect(() => {

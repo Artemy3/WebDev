@@ -19,6 +19,9 @@ export const cartSlice = createSlice({
       },
       deliteItem: (state, action) => {
          state.items = state.items.filter(el => el.id !== action.payload.id)
+         state.totalPrice = state.items.reduce((sum, el) => {
+            return el.price + sum;
+         }, 0);
       },
       clearItems: (state) => {
          state.items = [];
