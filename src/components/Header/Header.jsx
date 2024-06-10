@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from './Header.module.css'
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-
+import logo from '../assets/logo.jpg';
 const Header = () => {
    const { items, totalPrice } = useSelector((state) => state.cart);
 
+   useEffect(() => {
+      localStorage.setItem('cartProducts', JSON.stringify(items))
+      localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
+   }, [items]);
+
+
    return <div className={style.header}>
       <div>
-         <button>Вход</button>
+         <img src={logo} className={style.logo} />
       </div>
       <div>
          <div className={style.btn_right}>
